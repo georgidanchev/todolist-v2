@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hello World!</title>
-</head>
-<body>
-  <img class="main-image" src="../src/assets/webpack.png" alt="webpack logo picture">
-  <h1 class="main-heading">Hello Word!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todoist-v2</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__wrap header__wrap--1">
+        <h1 class="header__title">Todolist v2</h1>
+        <p class="header__subtitle">Organize your life</p>
+      </div>
+      <div class="header__wrap header__wrap--2">
+        <input class="header__input" type="text" />
+      </div>
+      <div class="header__wrap header__wrap--3">
+        <a class="header__btn header__btn--srch">srch</a>
+        <a class="header__btn header__btn--add">add</a>
+      </div>
+    </header>
+    <main>
+      <table class="todoTable">
+        <thead class="todoTable__head">
+          <tr class="todoTable__row todoTable__row--main">
+            <th class="todoTable__tHeading">Name</th>
+            <th class="todoTable__tHeading">PR</th>
+            <th class="todoTable__tHeading">DC</th>
+            <th class="todoTable__tHeading">CO</th>
+          </tr>
+        </thead>
+        <tbody class="todoTable__body"></tbody>
+      </table>
+    </main>
+  </body>
+  <footer></footer>
 </html>
