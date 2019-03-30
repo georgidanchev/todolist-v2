@@ -1,3 +1,5 @@
 import './styles/style.scss'
 
-console.log('hello')
+import Header from './scripts/header'
+
+new Header('.header').onLoad()
