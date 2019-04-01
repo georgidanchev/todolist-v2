@@ -2,16 +2,40 @@
   width: 100%;
 
   &__row--main {
-    background-color: #969696;
+    background-color: $color4;
   }
-  // border: 1px solid grey;
+
+  &__tableRow {
+    text-align: center;
+  }
+
+  &__tableRow:nth-child(even) {
+    background-color: $color6;
+  }
+
+  &__tableRow:nth-child(odd) {
+    background-color: $color5;
+  }
+
+  &__cell--name {
+    width: 60%;
+  }
+
+  &__cell--prio {
+    width: 10%;
+  }
+
+  &__cell--dued {
+    width: 15%;
+  }
+
+  &__cell--ctrl {
+    width: 15%;
+  }
+
+  .btn {
+    display: inline-block;
+    line-height: 0;
+  }
 }
 
-td {
-  text-align: center;
-}
-
-.btn {
-  display: inline-block;
-  line-height: 0;
-}

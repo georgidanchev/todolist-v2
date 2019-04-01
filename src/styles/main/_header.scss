@@ -7,6 +7,15 @@
     margin: 0;
     padding: 0;
   }
+  
+  &__separetor {
+    width: 40%;
+    background-color: $color2;
+    border-radius: 5px;
+    opacity: .6;
+    height: 2px;
+    margin: 1px 0;
+  }
 
   &__wrap {
     display: flex;
@@ -27,7 +36,7 @@
   }
 
   &__input {
-    border: 1px solid gray;
+    border: 1px solid $color2;
     border-radius: 5px;
     padding: 10px;
     outline: none;
@@ -35,12 +44,11 @@
   }
 
   &__btn {
-    background-color: #B2B7FF;
+    background-color: $color2;
     border-radius: 50%;
+    position: relative;
     height: 50px;
     width: 50px;
-
-    position: relative;
   }
 
   &__btn--srch {

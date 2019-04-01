@@ -12,14 +12,14 @@ class TodoTask {
 
   createTask() {
     const taskTr = document.createElement('tr')
-
-    taskTr.setAttribute('data-taskID', this.id)
+    
+    taskTr.className = 'todoTable__tableRow'
 
     taskTr.innerHTML = `
-      <th>${this.name}</th>
-      <td>${this.priority}</td>
-      <td>${this.dueDate}</td>
-      <td class="controls" data-controls>
+      <th class="todoTable__cell todoTable__cell--name">${this.name}</th>
+      <td class="todoTable__cell todoTable__cell--prio">${this.priority}</td>
+      <td class="todoTable__cell todoTable__cell--dued">${this.dueDate}</td>
+      <td class="todoTable__cell todoTable__cell--ctrl todoTable__controls" data-id=${this.id}>
         <a class="btn btn--up" data-up>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="10" class="primary"></circle><path class="secondary" d="M13 9.41V17a1 1 0 0 1-2 0V9.41l-2.3 2.3a1 1 0 1 1-1.4-1.42l4-4a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1-1.4 1.42L13 9.4z"></path></svg>
         </a>
