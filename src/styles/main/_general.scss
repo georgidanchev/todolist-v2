@@ -1,5 +1,9 @@
 body {
   background-color: #f8f8f8;
   max-width: 1024px;
+  min-height: 100vh;
   margin: 0 auto;
+}
+main {
+  min-height: 78.5vh;
 }

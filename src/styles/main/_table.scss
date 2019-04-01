@@ -1,0 +1,17 @@
+.todoTable {
+  width: 100%;
+
+  &__row--main {
+    background-color: #969696;
+  }
+  // border: 1px solid grey;
+}
+
+td {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  line-height: 0;
+}
