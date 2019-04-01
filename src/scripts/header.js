@@ -1,5 +1,5 @@
 
-export default class header {
+class Header {
   constructor(_target) {
     this.target = document.querySelector(_target)
     this.body = document.body
@@ -44,3 +44,5 @@ export default class header {
     })
   }
 }
+
+export default Header
