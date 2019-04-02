@@ -1,6 +1,6 @@
 /* eslint object-curly-newline: 0 */
 
-import Task from './task'
+import TaskTemplate from './components/TaskTemplate'
 
 class TaskManager {
   constructor(_target, _newData) {
@@ -21,7 +21,7 @@ class TaskManager {
   addTasks() {
     this.tasks.forEach((item, index) => {
       const { name, prio, date, done } = item
-      new Task(this.target, index, name, prio, done, date).onLoad()
+      new TaskTemplate(this.target, index, name, prio, done, date).onLoad()
     })
   }
 

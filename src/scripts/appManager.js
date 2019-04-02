@@ -1,5 +1,5 @@
-import Header from './header'
-import Manager from './taskManager'
+import HeaderManager from './HeaderManager'
+import TasksManager from './TasksManager'
 
 const sampTasks = [
   {
@@ -63,8 +63,8 @@ class AppManager {
   onLoad(_headerTarget, _taskMnaagerTarget) {
     this.loadData()
     this.dataReciver()
-    this.taskMnaager = new Manager(_taskMnaagerTarget, this.taskData).onLoad()
-    this.header = new Header(_headerTarget, this.taskData).onLoad()
+    this.taskMnaager = new TasksManager(_taskMnaagerTarget, this.taskData).onLoad()
+    this.header = new HeaderManager(_headerTarget, this.taskData).onLoad()
   }
 }
 
