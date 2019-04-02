@@ -2,7 +2,7 @@
 
 import Task from './task'
 
-const todoTasksData = [
+const sampleData = [
   {
     name: 'Shave beard',
     prio: 3,
@@ -36,8 +36,18 @@ class Manager {
     this.tasks = []
   }
 
-  getData() {
-    this.tasks = [...todoTasksData]
+  saveData() {
+    localStorage.setItem('todoTasks', JSON.stringify(this.tasks))
+  }
+
+  loadData() {
+    if (localStorage.getItem('todoTasks') !== null) {
+      const todoTasks = JSON.parse(localStorage.getItem('todoTasks'))
+      this.tasks = [...todoTasks]
+    } else {
+      this.tasks = [...sampleData]
+      this.saveData()
+    }
   }
 
   addTasks() {
@@ -45,6 +55,11 @@ class Manager {
       const { name, prio, date, done } = item
       new Task(this.target, index, name, prio, done, date).onLoad()
     })
+  }
+
+  reAddTasks() {
+    document.querySelector(this.target).innerHTML = ''
+    this.addTasks()
   }
 
   moveEntryUp(index) {
@@ -97,11 +112,13 @@ class Manager {
       } else if (dataKey === 'remove') {
         this.removeEntry(index)
       }
+      this.saveData()
+      this.reAddTasks()
     })
   }
 
   onLoad() {
-    this.getData()
+    this.loadData()
     this.eventReciver()
     this.addTasks()
   }
