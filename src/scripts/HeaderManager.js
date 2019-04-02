@@ -1,15 +1,12 @@
 
-import ModalManager from './components/ModalLogic'
-
 class Header {
-  constructor(_target, _newData, _headerModal) {
+  constructor(_target, _newData) {
     this.target = document.querySelector(_target)
     this.todoTasks = [..._newData]
     this.body = document.body
     this.input = this.target.querySelector('[data-input]')
     this.btnSrch = this.target.querySelector('[data-btn-srch]')
     this.btnAdd = this.target.querySelector('[data-btn-add]')
-    this.headerModal = _headerModal
   }
 
   addTask(taskName) {
@@ -44,7 +41,6 @@ class Header {
 
   onLoad() {
     this.addEvents()
-    new ModalManager(this.headerModal).onLoad()
   }
 }
 

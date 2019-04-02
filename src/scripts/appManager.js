@@ -1,5 +1,7 @@
+
 import HeaderManager from './HeaderManager'
 import TasksManager from './TasksManager'
+import ModalManager from './components/ModalLogic'
 
 const sampTasks = [
   {
@@ -31,7 +33,8 @@ const sampTasks = [
 class AppManager {
   constructor() {
     this.taskMnaager = null
-    this.header = null
+    this.headerLogic = null
+    this.modalLogic = null
     this.taskData = null
   }
 
@@ -60,11 +63,12 @@ class AppManager {
     })
   }
 
-  onLoad(_headerTarget, _taskMnaagerTarget) {
+  onLoad(_headerTarget, _taskMnaagerTarget, _headerModalTarget) {
     this.loadData()
     this.dataReciver()
     this.taskMnaager = new TasksManager(_taskMnaagerTarget, this.taskData).onLoad()
     this.header = new HeaderManager(_headerTarget, this.taskData).onLoad()
+    this.modalLogic = new ModalManager(_headerModalTarget).onLoad()
   }
 }
 
