@@ -1,6 +1,7 @@
 .todoTable {
   width: 100%;
-
+  border-collapse: collapse;
+  
   &__row--main {
     background-color: $color4;
   }
@@ -15,6 +16,10 @@
 
   &__tableRow:nth-child(odd) {
     background-color: $color5;
+  }
+
+  &__cell {
+    padding: 3px 0;
   }
 
   &__cell--name {

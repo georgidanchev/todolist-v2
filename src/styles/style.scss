@@ -3,9 +3,9 @@
 @import "mixins/other";
 
 @import "main/color";
-
-@import "main/header";
 @import "main/general";
-@import "main/table";
 @import "main/icons";
-@import "main/footer";
+
+@import "components/header";
+@import "components/table";
+@import "components/footer";

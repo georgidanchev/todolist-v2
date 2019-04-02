@@ -12,7 +12,7 @@ class TodoTask {
 
   createTask() {
     const taskTr = document.createElement('tr')
-    
+
     taskTr.className = 'todoTable__tableRow'
 
     taskTr.innerHTML = `
