@@ -2,52 +2,20 @@
 
 import Task from './task'
 
-const sampleData = [
-  {
-    name: 'Shave beard',
-    prio: 3,
-    date: '01/02/19',
-    done: false,
-  },
-  {
-    name: 'Buy weekly groceries',
-    prio: 2,
-    date: '01/02/19',
-    done: false,
-  },
-  {
-    name: 'Fill car w/t petrol',
-    prio: 1,
-    date: '01/02/19',
-    done: true,
-  },
-  {
-    name: 'Go for jog',
-    prio: 2,
-    date: '02/02/19',
-    done: false,
-  },
-]
-
-class Manager {
-  constructor(_target) {
+class TaskManager {
+  constructor(_target, _newData) {
     this.target = _target
     this.body = document.body
-    this.tasks = []
+    this.tasks = [..._newData]
   }
 
-  saveData() {
-    localStorage.setItem('todoTasks', JSON.stringify(this.tasks))
-  }
-
-  loadData() {
-    if (localStorage.getItem('todoTasks') !== null) {
-      const todoTasks = JSON.parse(localStorage.getItem('todoTasks'))
-      this.tasks = [...todoTasks]
-    } else {
-      this.tasks = [...sampleData]
-      this.saveData()
-    }
+  pushData() {
+    console.log('push data')
+    document.body.dispatchEvent(new CustomEvent('newData', {
+      detail: {
+        data: this.tasks,
+      },
+    }))
   }
 
   addTasks() {
@@ -112,16 +80,16 @@ class Manager {
       } else if (dataKey === 'remove') {
         this.removeEntry(index)
       }
-      this.saveData()
+
+      this.pushData(this.tasks)
       this.reAddTasks()
     })
   }
 
   onLoad() {
-    this.loadData()
     this.eventReciver()
     this.addTasks()
   }
 }
 
-export default Manager
+export default TaskManager

@@ -1,7 +1,5 @@
 import './styles/style.scss'
 
-import Header from './scripts/header'
-import Manager from './scripts/manager'
+import AppManager from './scripts/appManager'
 
-new Header('.header').onLoad()
-new Manager('[data-manager]').onLoad()
+new AppManager().onLoad('[data-header]', '[data-taskManager]')

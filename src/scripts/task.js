@@ -15,6 +15,10 @@ class TodoTask {
 
     taskTr.className = 'todoTable__tableRow'
 
+    if (this.done === true) {
+      taskTr.className += ' done'
+    }
+
     taskTr.innerHTML = `
       <th class="todoTable__cell todoTable__cell--name">${this.name}</th>
       <td class="todoTable__cell todoTable__cell--prio">${this.priority}</td>

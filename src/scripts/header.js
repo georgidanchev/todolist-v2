@@ -1,7 +1,8 @@
 
 class Header {
-  constructor(_target) {
+  constructor(_target, _newData) {
     this.target = document.querySelector(_target)
+    this.todoTasks = [..._newData]
     this.body = document.body
     this.input = this.target.querySelector('[data-input]')
     this.btnSrch = this.target.querySelector('[data-btn-srch]')
@@ -12,19 +13,19 @@ class Header {
     console.log(this.target)
   }
 
-  submitTask() {
+  searchTask() {
     console.log(this.target)
   }
 
-  onLoad() {
+  addEvents() {
     this.input.addEventListener('click', () => {
       console.log('input click')
     })
 
-    // fix this.
-    this.input.addEventListener('change', () => {
-      console.log('keyup')
-    })
+    // // fix this.
+    // this.input.addEventListener('change', () => {
+    //   console.log('keyup')
+    // })
 
     this.input.onkeypress = (e) => {
       const key = e.charCode || e.keyCode || 0
@@ -42,6 +43,10 @@ class Header {
     this.btnAdd.addEventListener('click', () => {
       console.log('btn add')
     })
+  }
+
+  onLoad() {
+    this.addEvents()
   }
 }
 
