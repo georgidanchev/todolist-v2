@@ -7,14 +7,17 @@ class Header {
     this.input = this.target.querySelector('[data-input]')
     this.btnSrch = this.target.querySelector('[data-btn-srch]')
     this.btnAdd = this.target.querySelector('[data-btn-add]')
+    this.modal = this.target.querySelector('[data-header-modal]')
   }
 
   addTask(taskName) {
-    console.log(this.todoTasks)
+    this.modal.classList.add('active')
   }
 
+  // yet to do this.
   searchTask(taskName) {
-    console.log(this.todoTasks)
+    this.todoTasks = this.todoTasks
+    console.log(taskName)
   }
 
   addEvents() {

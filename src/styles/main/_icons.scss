@@ -1,4 +1,4 @@
-.header .icon {
+.header__wrap .icon {
   transform: translate(-50%, -50%);
   pointer-events: none;
   position: absolute;
@@ -11,6 +11,14 @@
   }
 
   &--add {
+    height: 40px;
+  }
+
+
+}
+
+.header-modal .icon {
+  &--close {
     height: 40px;
   }
 }
