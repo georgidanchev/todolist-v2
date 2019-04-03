@@ -17,22 +17,12 @@ class Header {
           },
       }))
     }
-    
+
     this.modal.classList.add('active')
     pushTaskName()
   }
 
-  // yet to do this.
-  searchTask(taskName) {
-    this.todoTasks = this.todoTasks
-    console.log(taskName)
-  }
-
   addEvents() {
-    this.input.addEventListener('click', () => {
-      console.log('input click')
-    })
-
     this.input.onkeypress = (e) => {
       const key = e.charCode || e.keyCode || 0
       if (key === 13) {

@@ -6,6 +6,12 @@
     background-color: $color4;
   }
 
+  &__tableRow.done {
+    .todoTable__cell--name {
+      text-decoration: line-through
+    }
+  }
+
   &__tableRow {
     text-align: center;
   }

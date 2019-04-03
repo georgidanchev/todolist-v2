@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 60px 0;
 
   &__title, &__subtitle {
@@ -32,12 +32,8 @@
   }
 
   &__wrap--2 {
-     width: 50%;
+     width: 40%;
   }
-
-  &__wrap--3 {
-    width: 20%;
- }
 
   &__input {
     border: 1px solid $color2;
@@ -48,10 +44,9 @@
   }
 
   &__btn {
-    background-color: $color2;
     border-radius: 50%;
     position: relative;
-    margin: 0 10px;
+    margin: 0 20px;
     height: 50px;
     width: 50px;
   }
