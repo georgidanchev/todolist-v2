@@ -27,13 +27,17 @@
     flex-direction: column;
   }
 
-  &__wrap--1, &__wrap--3 {
+  &__wrap--1 {
     width: 30%;
   }
 
   &__wrap--2 {
-     width: 40%;
+     width: 50%;
   }
+
+  &__wrap--3 {
+    width: 20%;
+ }
 
   &__input {
     border: 1px solid $color2;

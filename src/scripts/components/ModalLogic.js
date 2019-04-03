@@ -4,20 +4,25 @@ class ModalLogic {
     this.target = document.querySelector(_target)
     this.closeBtn = this.target.querySelector('[data-close-btn]')
     this.background = this.target.querySelector('[data-background]')
-    this.taskNameInput = this.target.querySelector('[data-name-input]')
     this.allInputs = this.target.querySelectorAll('input')
+    this.nameInput = this.target.querySelector('[data-name-input]')
+    this.prioInput = this.target.querySelector('[data-prio-input]')
+    this.dateInput = this.target.querySelector('[data-date-input]')
+    this.validationText = this.target.querySelector('[data-vali-text]')
   }
 
   closeModal() {
     this.target.classList.remove('active')
+    this.target.classList.add('success')
+    this.target.classList.add('error')
   }
 
   pushModalInputs() {
     document.body.dispatchEvent(new CustomEvent('pushModalTask', {
     detail: {
-      name: this.allInputs[0].value,
-      prio: this.allInputs[1].value,
-      date: this.allInputs[2].value,
+      name: this.nameInput.value,
+      prio: this.prioInput.value,
+      date: this.dateInput.value,
       },
     }))
   }
@@ -31,8 +36,40 @@ class ModalLogic {
     })
 
     document.body.addEventListener('updateTaskInput', (e) => {
-      this.allInputs[2].value = new Date().toISOString().substr(0, 10)
+      this.dateInput.value = new Date().toISOString().substr(0, 10)
+      this.nameInput.value = e.detail.name
     })
+  }
+
+  fromValidation() {
+    let error = false
+
+    this.allInputs.forEach((input) => {
+      if (input.type !== 'submit') {
+        if (error === true) return
+        if (input.value === '') {
+          error = true
+        }
+      }
+    })
+
+    this.target.classList.add('modal-info')
+
+    if (error === false) {
+      this.target.classList.add('success')
+      this.validationText.innerText = 'Task was added! :)'
+      setTimeout(() => {
+        this.target.classList.remove('modal-info')
+        this.pushModalInputs()
+        this.closeModal()
+      }, 1000)
+    } else {
+      this.target.classList.add('error')
+      this.validationText.innerText = 'Please fill all fields.'
+      setTimeout(() => {
+        this.target.classList.remove('modal-info')
+      }, 2000)
+    }
   }
 
   modalFuncEvents() {
@@ -49,8 +86,7 @@ class ModalLogic {
       if (input.type === 'submit') {
         currentInput.addEventListener('click', (e) => {
           e.preventDefault()
-          this.pushModalInputs()
-          this.closeModal()
+          this.fromValidation()
         })
       }
     })
