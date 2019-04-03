@@ -25,6 +25,7 @@ Overall I am really happy with how this project turned out. It looks good, it fu
 * ES6, ES6 modules
 * CSS styled SVGs
 * SCSS
+* BEM
 
 <br />
 

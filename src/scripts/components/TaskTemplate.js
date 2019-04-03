@@ -1,4 +1,10 @@
 
+/**
+ * This component handles each individual task row that
+ * you can see in the web app. Each one individual row
+ * is a separate and individual component.
+ */
+
 class TodoTask {
   constructor(_target, _id, _name, _prio, _done, _date) {
     this.target = document.querySelector(_target)
@@ -10,9 +16,12 @@ class TodoTask {
     this.taskTr = null
   }
 
+  // This function creates the task as HTML row
+  // it uses both methods and template literals
+  // the finished task is passed as variable to
+  // then a function appends it to a target.
   createTask() {
     const taskTr = document.createElement('tr')
-
     taskTr.className = 'todoTable__tableRow'
 
     if (this.done === true) {
@@ -41,7 +50,10 @@ class TodoTask {
     this.taskTr = taskTr
   }
 
-  eventHanlder() {
+  // Function which adds events to the buttons
+  // for all of the task events by passing them
+  // to the app manager with a custom event.
+  addEventHanlders() {
     const allButtons = this.taskTr.querySelectorAll('a')
 
     const eventHandle = (index, dataKey) => {
@@ -62,13 +74,15 @@ class TodoTask {
     })
   }
 
+  // Append the task html tempalte into the dom.
   appendTask() {
     this.target.appendChild(this.taskTr)
   }
 
+  // On load execute each function.
   onLoad() {
     this.createTask()
-    this.eventHanlder()
+    this.addEventHanlders()
     this.appendTask()
   }
 }

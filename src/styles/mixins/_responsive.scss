@@ -1,10 +1,10 @@
+
 $mobile-small: 425px;
 $mobile: 560px;
 $tablet: 768px;
 $desktop-small: 1024px;
 $desktop-regular: 1440px;
 $desktop-large: 2160px;
-
 
 @mixin above-desktop-large {
   @media (min-width: #{$desktop-large}) {

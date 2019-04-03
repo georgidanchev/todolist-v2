@@ -1,4 +1,8 @@
 
+/**
+ * This component deal the header logic.
+ */
+
 class Header {
   constructor(_target, _newData) {
     this.target = document.querySelector(_target)
@@ -10,6 +14,8 @@ class Header {
   }
 
   openModal(taskName) {
+    // This pushes the value of the
+    // input field in the modal.
     const pushTaskName = () => {
       document.body.dispatchEvent(new CustomEvent('updateTaskInput', {
         detail: {
@@ -18,11 +24,17 @@ class Header {
       }))
     }
 
-    this.modal.classList.add('active')
+    // Push input to modal.
     pushTaskName()
+
+    // Show the modal.
+    this.modal.classList.add('active')
   }
 
+  // Header event handling
   addEvents() {
+    // If we press enter in the input
+    // open modal and pass the value.
     this.input.onkeypress = (e) => {
       const key = e.charCode || e.keyCode || 0
       if (key === 13) {
@@ -31,11 +43,15 @@ class Header {
       }
     }
 
+    // If we click the add button, then
+    // pass the value of the input and
+    // open the modal.
     this.btnAdd.addEventListener('click', () => {
       this.openModal(this.input.value)
     })
   }
 
+  // On load add the event handling.
   onLoad() {
     this.addEvents()
   }

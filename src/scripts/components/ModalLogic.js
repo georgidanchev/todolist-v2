@@ -1,4 +1,10 @@
 
+/**
+ * This component handles the modal logic. It serves
+ * to open the modal, process entered data and pass
+ * it to the app manager using a custom event.
+ */
+
 class ModalLogic {
   constructor(_target) {
     this.target = document.querySelector(_target)
@@ -18,11 +24,20 @@ class ModalLogic {
   }
 
   pushModalInputs() {
+    // This reformats data we get from
+    // the input field to what we want
+    // in our small array database.
     const reOrderDate = () => {
       const dataArr = this.dateInput.value.split('-')
       return `${dataArr[2]}/${dataArr[1]}/${dataArr[0].slice(-2)}`
     }
 
+    // We push the event with custom event
+    // which will get picked up by the app
+    // manager component which will add the
+    // entry to the array and call the task
+    // manager component which will update
+    // the tasks.
     document.body.dispatchEvent(new CustomEvent('pushModalTask', {
     detail: {
       name: this.nameInput.value,
@@ -32,10 +47,13 @@ class ModalLogic {
     }))
   }
 
+  // On modal initlization add all
+  // the nesscary event listeners.
   modalInitEvents() {
     this.closeBtn.addEventListener('click', () => {
       this.closeModal()
     })
+
     this.background.addEventListener('click', () => {
       this.closeModal()
     })
@@ -44,8 +62,30 @@ class ModalLogic {
       this.dateInput.value = new Date().toISOString().substr(0, 10)
       this.nameInput.value = e.detail.name
     })
+
+    this.allInputs.forEach((input) => {
+      const currentInput = input
+      if (input.type !== 'submit') {
+        currentInput.addEventListener('keypress', (e) => {
+          const key = e.charCode || e.keyCode || 0
+          if (key === 13) {
+            e.preventDefault()
+          }
+        })
+      }
+
+      if (input.type === 'submit') {
+        currentInput.addEventListener('click', (e) => {
+          e.preventDefault()
+          this.fromValidation()
+        })
+      }
+    })
   }
 
+  // Validate if the submitted inputs are
+  // as they should be. If not give a small
+  // notification feedback on the result.
   fromValidation() {
     let error = false
 
@@ -59,7 +99,6 @@ class ModalLogic {
     })
 
     this.target.classList.add('modal-info')
-
     if (error === false) {
       this.target.classList.add('success')
       this.validationText.innerText = 'Task was added! :)'
@@ -77,29 +116,8 @@ class ModalLogic {
     }
   }
 
-  modalFuncEvents() {
-    this.allInputs.forEach((input) => {
-      const currentInput = input
-      if (input.type !== 'submit') {
-        currentInput.addEventListener('keypress', (e) => {
-          const key = e.charCode || e.keyCode || 0
-          if (key === 13) {
-            e.preventDefault()
-          }
-        })
-      }
-      if (input.type === 'submit') {
-        currentInput.addEventListener('click', (e) => {
-          e.preventDefault()
-          this.fromValidation()
-        })
-      }
-    })
-  }
-
   onLoad() {
     this.modalInitEvents()
-    this.modalFuncEvents()
   }
 }
 
