@@ -1,6 +1,11 @@
 .todoTable {
   width: 100%;
   border-collapse: collapse;
+
+  @include desktop-small {
+    margin: 0 auto;
+    width: 90%;
+  }
   
   &__row--main {
     background-color: $color4;
@@ -42,6 +47,36 @@
 
   &__cell--ctrl {
     width: 15%;
+  }
+
+  @include desktop-small {
+    &__cell--name {
+      width: 40%;
+    }
+  
+    &__cell--dued {
+      width: 10%;
+    }
+  
+    &__cell--ctrl {
+      width: 15%;
+    }
+  }
+
+  @include tablet {
+    &__cell--name {
+      width: 25%;
+    }
+
+    &__cell--dued {
+      width: 10%;
+    }
+  }
+
+  @include mobile {
+    &__cell--ctrl {
+      width: 1%;
+    }
   }
 
   .btn {

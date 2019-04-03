@@ -10,7 +10,6 @@ class TaskManager {
   }
 
   pushData() {
-    console.log('push data')
     document.body.dispatchEvent(new CustomEvent('newData', {
       detail: {
         data: this.tasks,
