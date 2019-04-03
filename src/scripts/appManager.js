@@ -65,13 +65,10 @@ class AppManager {
       }))
     }
 
-    const newDate = new Date(date)
-    const dateString = `${newDate.getDate()}/${newDate.getMonth() + 1}/${(newDate.getYear() + 1900).toString().substr(-2)}`
-
     const newTask = {
       name,
       prio,
-      date: dateString,
+      date,
       done: false,
     }
 

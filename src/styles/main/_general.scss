@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+
 body {
+  font-family: 'Karla', sans-serif;
   background-color: $color1;
   max-width: 1024px;
   min-height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+input {
+  font-family: 'Karla', sans-serif;
 }

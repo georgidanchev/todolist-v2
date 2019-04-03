@@ -18,11 +18,16 @@ class ModalLogic {
   }
 
   pushModalInputs() {
+    const reOrderDate = () => {
+      const dataArr = this.dateInput.value.split('-')
+      return `${dataArr[2]}/${dataArr[1]}/${dataArr[0].slice(-2)}`
+    }
+
     document.body.dispatchEvent(new CustomEvent('pushModalTask', {
     detail: {
       name: this.nameInput.value,
       prio: this.prioInput.value,
-      date: this.dateInput.value,
+      date: reOrderDate(),
       },
     }))
   }
