@@ -56,10 +56,38 @@ class AppManager {
     }
   }
 
+  addNewEntry(name, prio, date) {
+    const callTaskReAdd = () => {
+      document.body.dispatchEvent(new CustomEvent('ReAddTasks', {
+      detail: {
+        data: this.taskData,
+        },
+      }))
+    }
+
+    const newDate = new Date(date)
+    const dateString = `${newDate.getDate()}/${newDate.getMonth() + 1}/${(newDate.getYear() + 1900).toString().substr(-2)}`
+
+    const newTask = {
+      name,
+      prio,
+      date: dateString,
+      done: false,
+    }
+
+    this.taskData.push(newTask)
+    callTaskReAdd()
+    this.saveData()
+  }
+
   dataReciver() {
     document.body.addEventListener('newData', (e) => {
       this.taskData = e.detail.data
       this.saveData()
+    })
+
+    document.body.addEventListener('pushModalTask', (e) => {
+      this.addNewEntry(e.detail.name, e.detail.prio, e.detail.date)
     })
   }
 

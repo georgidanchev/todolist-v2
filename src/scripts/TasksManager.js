@@ -67,7 +67,7 @@ class TaskManager {
     this.tasks = newArr
   }
 
-  eventReciver() {
+  eventRecivers() {
     this.body.addEventListener('taskBtnClick', (e) => {
       const [dataKey, index] = [e.detail.dataKey, parseInt(e.detail.index, 10)]
 
@@ -84,10 +84,15 @@ class TaskManager {
       this.pushData(this.tasks)
       this.reAddTasks()
     })
+
+    document.body.addEventListener('ReAddTasks', (e) => {
+      this.tasks = [...e.detail.data]
+      this.reAddTasks()
+    })
   }
 
   onLoad() {
-    this.eventReciver()
+    this.eventRecivers()
     this.addTasks()
   }
 }

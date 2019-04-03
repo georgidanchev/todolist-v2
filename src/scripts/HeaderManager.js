@@ -11,7 +11,15 @@ class Header {
   }
 
   addTask(taskName) {
+    const pushTaskName = (name) => {
+      document.body.dispatchEvent(new CustomEvent('updateTaskInput', {
+        detail: {
+          string: name,
+          },
+      }))
+    }
     this.modal.classList.add('active')
+    pushTaskName(taskName)
   }
 
   // yet to do this.
