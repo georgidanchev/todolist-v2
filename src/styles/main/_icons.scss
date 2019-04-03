@@ -12,7 +12,11 @@
 
 .header-modal .icon {
   &--close {
+   
     height: 40px;
+  }
+  .primary {
+    fill: $btn-color4; 
   }
 }
 
@@ -29,22 +33,22 @@
   }
 
   .primary {
-    fill: #616cff; 
+    fill: $btn-color2; 
   }
   
   .secondary {
-    fill: white; 
+    fill: $btn-color1; 
   }
 }
 
 .icon--dn {
   .primary {
-    fill: green; 
+    fill: $btn-color3; 
   }
 }
 
 .btn--rm {
   .primary {
-    fill: red; 
+    fill: $btn-color4; 
   }
 }

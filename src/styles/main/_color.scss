@@ -1,6 +1,44 @@
+
+// main colors
 $color1: #f8f8f8;
-$color2: #B2B7FF;
-$color3: #2F365F;
-$color4: #969696;
-$color5: #f4f7f8;
-$color6: #e8eeef;
+$color2: #616cff;
+
+// table colors
+$color4: #F7D070;
+$color5: #FFFAEB;
+$color6: #fdf5dd;
+
+// button colors
+$btn-color1: $color1;
+$btn-color2: $color2;
+$btn-color3: #008000;
+$btn-color4: #ff0000;
+
+// gradient colors
+$grad-color1: #d9e2ec;
+$grad-color2: #bcccdc;
+$grad-color3: #9fb3c8;
+
+// background gradient
+.main-bg {
+  background: $grad-color1; /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    $grad-color1 0%,
+    $grad-color2 50%,
+    $grad-color3 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    $grad-color1 0%,
+    $grad-color2 50%,
+    $grad-color3 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    $grad-color1 0%,
+    $grad-color2 50%,
+    $grad-color3 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$grad-color1}', endColorstr='#{$grad-color3}',GradientType=0 ); /* IE6-9 */
+}

@@ -1,5 +1,7 @@
+
 .header-modal {
   position: fixed;
+  z-index: 2;
   height: 100%;
   width: 100%;
   left: 0;
@@ -16,7 +18,15 @@
 
   &__validation-box {
     transition: opacity 500ms ease;
+    border-radius: 5px;
+    position: absolute;
+    pointer-events: none;
+    bottom: 5%;
     opacity: 0;
+
+    width: calc(100% - 100px);
+    transform: translateX(-50%);
+    left: 50%;
   }
 
   &.modal-info .header-modal__validation-box {
@@ -25,13 +35,15 @@
 
   &.error {
     .header-modal__validation-box {
-      background-color: red;
+      background-color: $btn-color4;
+      color: $color1;
     }
   }
 
   &.success {
     .header-modal__validation-box {
-      background-color: green;
+      background-color: $btn-color3;
+      color: $color1;
     }
   }
 
@@ -41,38 +53,41 @@
 
   &__background {
     background-color: $color1;
-    opacity: 0.8;
+    opacity: 0.9;
     height: 100%;
     width: 100%;
   }
 
   &__btn {
     margin-left: auto;
-    padding: 10px;
+    padding: 5px;
     width: 40px;
+
+    position: absolute;
+    right: 5px;
+    top: 5px;
   }
 
   &__content-wrap {
-    background-color: $color6;
-    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    background-color: $color5;
+    border: 2px solid $color4;
+    border-radius: 10px;
     position: fixed;
     width: 350px;
     left: 50%;
     top: 50%;
-
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
   }
 
   &__content {
-    padding: 10px 0 50px;
+    padding: 80px 0 90px 0;
+    position: relative;
   }
 
   &__title {
-    text-align: center;
-    text-transform: capitalize;
+    text-transform: uppercase;
     margin: 0 0 30px 0;
+    text-align: center;
   }
 
   &__form {
@@ -83,7 +98,7 @@
 
   &__input {
     border: 1px solid $color2;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-radius: 5px;
     min-height: 30px;
     padding: 0 10px;
@@ -98,11 +113,20 @@
 
   &__submitBtn {
     text-transform: uppercase;
-    font-weight: bold;
     border-radius: 5px;
-    border: none;
+    font-weight: bold;
     padding: 15px;
+    border: none;
     margin: 0;
     margin-top: 10px;
+
+    transition: opacity 500ms ease;
+    background-color: $color2;
+    color: $color1;
+    opacity: 0.7;
+    
+    &:hover {
+      opacity: 1;
+    }
   }
 }

@@ -13,8 +13,8 @@ class ModalLogic {
 
   closeModal() {
     this.target.classList.remove('active')
-    this.target.classList.add('success')
-    this.target.classList.add('error')
+    this.target.classList.remove('success')
+    this.target.classList.remove('error')
   }
 
   pushModalInputs() {

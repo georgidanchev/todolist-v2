@@ -17,6 +17,10 @@
     }
   }
 
+  &__tHeading {
+    padding: 10px 0;
+  }
+
   &__tableRow {
     text-align: center;
   }
@@ -30,7 +34,8 @@
   }
 
   &__cell {
-    padding: 3px 0;
+    font-weight: 400;
+    padding: 5px 0;
   }
 
   &__cell--name {
