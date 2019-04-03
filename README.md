@@ -2,7 +2,7 @@
 
 <br />
 
-This new project is based on my previous project [todolist-webapp-project](https://w3althambition.github.io/todolist-webapp-project/) which was loosely based on the (todoist)[https://todoist.com] website which I love so much!
+This new project is based on my previous project [todolist-webapp-project](https://w3althambition.github.io/todolist-webapp-project/) which was loosely based on the [todoist](https://todoist.com) website which I love so much!
 
 This version received a lot of improvements compared to the last at it's a build up straight from my last project where I had difficulties processing the array data. Now it's an all done in a few functions which use lines of code compared to my last project of having functions nearly half a screen long! Now I simply utilized: map, filter and destructuring function. It looks pretty good and it's a great set up.
 
@@ -28,4 +28,4 @@ Overall I am really happy with how this project turned out. It looks good, it fu
 
 <br />
 
-To view the project click [here](https://w3althambition.github.io/todolist-v2/dist/index.html).
+**To view the project click [here](https://w3althambition.github.io/todolist-v2/dist/index.html).**
