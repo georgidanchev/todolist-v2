@@ -22,6 +22,7 @@ module.exports = merge(common, {
       new TerserPlugin(),
       new HtmlWebpackPlugin(
         {
+          favicon: './src/assets/favicon.ico',
           template: './src/index.html',
           minify: {
             removeRedundantAttributes: true,

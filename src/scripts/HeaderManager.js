@@ -31,7 +31,7 @@ class Header {
     this.modal.classList.add('active')
   }
 
-  // Header event handling
+  // Header event handling.
   addEvents() {
     // If we press enter in the input
     // open modal and pass the value.
